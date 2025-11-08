@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EcoVision Chatbot 🌱</title>
+  <style>
+    body { font-family: Arial; background: #f6faf6; text-align: center; padding: 40px; }
+    .chat { width: 80%; margin: auto; background: white; border-radius: 10px; padding: 20px; }
+    input { padding: 10px; width: 70%; border-radius: 5px; border: 1px solid #ccc; }
+    button { padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>EcoVision Chatbot 🌱</h2>
+  <div class="chat" id="chat"></div>
+  <input id="msg" placeholder="Ask me about recycling..." />
+  <button onclick="send()">Send</button>
+
+  <script>
+    function send(){
+      const chat = document.getElementById("chat");
+      const msg = document.getElementById("msg").value.toLowerCase();
+      let reply = "";
+
+      if(msg.includes("plastic")) reply = "🚫 Avoid single-use plastics — reuse bottles and bags!";
+      else if(msg.includes("organic")) reply = "🌱 Organic waste includes food scraps and leaves.";
+      else if(msg.includes("recycle")) reply = "♻️ Always separate dry and wet waste.";
+      else reply = "🌍 Let's make Earth cleaner together!";
+
+      chat.innerHTML += `<p><b>You:</b> ${msg}</p><p><b>EcoBot:</b> ${reply}</p>`;
+      document.getElementById("msg").value = "";
+    }
+  </script>
+</body>
+</html>
